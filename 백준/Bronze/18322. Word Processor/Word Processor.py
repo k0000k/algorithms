@@ -1,25 +1,19 @@
 import sys
 
-n, k = map(int, sys.stdin.readline().rstrip().split())
-essay = list(sys.stdin.readline().rstrip().split())
+n,k=map(int,sys.stdin.readline().rstrip().split())
+essay=list(sys.stdin.readline().rstrip().split())
 
-current = 0
+count=0
 for i in range(n):
-    if (current + len(essay[i]) <= k):
-        current += len(essay[i])
-        if (i != n - 1 and current + len(essay[i + 1]) > k):
-            print(essay[i], end="")
-        elif (i == n - 1):
-            print(essay[i], end="")
-        else:
-            print(essay[i], end=" ")
-        
-    else:
+    count+=len(essay[i])
+    if (count > k):
         print()
-        current = len(essay[i])
-        if (i != n - 1 and current + len(essay[i + 1]) > k):
-            print(essay[i], end="")
-        elif (i == n - 1):
-            print(essay[i], end="")
-        else:
-            print(essay[i], end=" ")
+        count=len(essay[i])
+
+    # print(essay[i],end=' ') # 이 한줄이 아래와 같이 바뀜..
+    if (i != n - 1 and count + len(essay[i + 1]) > k):
+        print(essay[i],end='')
+    elif (i == n - 1):
+        print(essay[i],end='')
+    else:
+        print(essay[i],end=' ')

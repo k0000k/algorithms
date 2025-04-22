@@ -28,10 +28,6 @@ public class Main {
             }
         }
 
-//        ArrayList<int[]> selected = new ArrayList<>();
-//        selected.add(new int[] {0, 0});
-//        findMax(selected, nums[0][0]);
-
         System.out.println(answer);
     }
 
@@ -49,7 +45,8 @@ public class Main {
                 int y = node[1] + dir[1];
                 if (isRange(x, y) && isNotIn(selected, x, y)) {
                     selected.add(new int[]{x, y});
-                    findMax(copyList(selected), sum + nums[x][y]);
+//                    findMax(copyList(selected), sum + nums[x][y]);
+                    findMax(selected, sum + nums[x][y]);
                     selected.remove(selected.size() - 1);
                 }
             }
@@ -69,11 +66,4 @@ public class Main {
         return true;
     }
 
-    private static ArrayList<int[]> copyList(ArrayList<int[]> selected) {
-        ArrayList<int[]> newArr = new ArrayList<>();
-        for (int[] node : selected) {
-            newArr.add(new int[]{node[0], node[1]});
-        }
-        return newArr;
-    }
 }

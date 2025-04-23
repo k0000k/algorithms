@@ -13,7 +13,7 @@ public class Main {
 
         city = new int[n][n];
         for (int i = 0; i < n; i++) {
-            Arrays.fill(city[i], 101);
+            Arrays.fill(city[i], 10000);
             city[i][i] = 0;
         }
 
@@ -27,14 +27,21 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                int current = city[i][j];
                 for (int k = 0; k < n; k++) {
+                    int current = city[i][j];
                     int after = city[i][k] + city[k][j];
                     if (current > after) {
                         city[i][j] = after;
                         city[j][i] = after;
                     }
                 }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                boolean[] visited = new boolean[n];
+
             }
         }
 
@@ -57,11 +64,5 @@ public class Main {
 
         System.out.println((chickens[0] + 1) + " " + (chickens[1] + 1) + " " + min);
 
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < n; j++) {
-//                System.out.print(city[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
     }
 }

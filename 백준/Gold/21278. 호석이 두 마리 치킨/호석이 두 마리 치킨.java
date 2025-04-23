@@ -25,9 +25,9 @@ public class Main {
             city[b - 1][a - 1] = 1;
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                for (int k = 0; k < n; k++) {
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     int current = city[i][j];
                     int after = city[i][k] + city[k][j];
                     if (current > after) {
